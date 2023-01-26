@@ -9,8 +9,14 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class CarDaoImp implements CarDao {
 
-    @Autowired
     private SessionFactory sessionFactory;
+
+    public CarDaoImp(){}
+
+    @Autowired
+    public CarDaoImp(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public void add(Car car) {
